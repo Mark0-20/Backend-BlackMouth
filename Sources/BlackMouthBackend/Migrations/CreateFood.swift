@@ -1,6 +1,6 @@
 import Fluent
 
-struct CreateAlbum : AsyncMigration {
+struct CreateFood : AsyncMigration {
 
     func prepare(on database : any Database) async throws{
         try await database.schema("menu_items")
@@ -9,9 +9,9 @@ struct CreateAlbum : AsyncMigration {
         .field("description", .custom("VARCHAR(500)"), .required)
         .field("price", .string, .required)
         .field("category", .string, .required)
-        .field("imageURL", .string, .required)
-        .field("created_at", .dateandtime, .required)
-        .field("updated_at", .dateandtime, .required)
+        .field("imageURL", .string)
+        .field("created_at", .dateandtime)
+        .field("updated_at", .dateandtime)
         .create()
     }
 
