@@ -22,5 +22,11 @@ func routes(_ app: Application) throws {
         return menuItem
     }
 
+    app.post("menu_items") {req async throws -> MenuItems in
+        let menuItem = try req.content.decode(MenuItems.self)
+        try await menuItem.save(on: req.db)
+        return menuItem
+    }
+
     try app.register(collection: TodoController())
 }
