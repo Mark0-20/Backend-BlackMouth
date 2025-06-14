@@ -10,5 +10,12 @@ func routes(_ app: Application) throws {
         "Hello, world!"
     }
 
+    app.get("menu_items") { req async throws -> [MenuItems] in
+        let menuItem = try await MenuItems.query(on: req.db).all()
+        return menuItem
+    }
+
+    
+
     try app.register(collection: TodoController())
 }
