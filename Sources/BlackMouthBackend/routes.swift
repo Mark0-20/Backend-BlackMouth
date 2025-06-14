@@ -28,5 +28,19 @@ func routes(_ app: Application) throws {
         return menuItem
     }
 
+    app.put("menu_items", ":id"){req async throws -> MenuItems in
+        guard let existingMenuItem = try await MenuItems.find(req.parameters.get("id"), on: req.db) else {
+            throw Abort(.notFound, reason: "Album not found")
+        }
+        let updatedMenuItem = try req.content.decode(MenuItems.self)
+        existingMenuItem.name = updatedMenuItem.name
+        existingMenuItem.description = updatedMenuItem.description
+        existingMenuItem.price = updatedMenuItem.price
+        existingMenuItem.category = updatedMenuItem.category
+        existingMenuItem.imageURL = updatedMenuItem.imageURL
+        try await existingMenuItem.update(on: req.db)
+        return existingMenuItem
+    }
+
     try app.register(collection: TodoController())
 }
