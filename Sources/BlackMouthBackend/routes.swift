@@ -42,5 +42,13 @@ func routes(_ app: Application) throws {
         return existingMenuItem
     }
 
+    app.delete("menu_items", ":id"){ req async throws -> HTTPStatus in
+        guard let existingMenuItem = try await MenuItems.find(req.parameters.get("id"), on: req.db) else {
+            throw Abort(.notFound, reason: "Album not found")
+        }
+        try await existingMenuItem.delete(on: req.db)
+        return .noContent
+    }
+
     try app.register(collection: TodoController())
 }
