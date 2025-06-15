@@ -29,4 +29,4 @@ jobs:
                   -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} \
                   -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} \
                   -e DATABASE_NAME=${{ secrets.DATABASE_NAME }} \
-                  151019ardagulercito/backend-blackmouth:latest BlackMouthBackend migrate --yes
+                  151019ardagulercito/backend-blackmouth:latest migrate --yes
