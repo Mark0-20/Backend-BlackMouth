@@ -10,8 +10,8 @@ struct CreateFood : AsyncMigration {
         .field("price", .double, .required)
         .field("category", .string, .required)
         .field("imageURL", .string)
-        .field("created_at", .dateandtime)
-        .field("updated_at", .dateandtime)
+        .field("created_at", .datetime)
+        .field("updated_at", .datetime)
         .create()
     }
 
