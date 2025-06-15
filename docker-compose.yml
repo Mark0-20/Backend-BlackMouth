@@ -31,7 +31,9 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     environment:
+      MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: blackmouth
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
     ports:
-      - '3307:3306'
+      - '3312:3306'

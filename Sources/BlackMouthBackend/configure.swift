@@ -10,10 +10,11 @@ public func configure(_ app: Application) async throws {
 
     app.databases.use(DatabaseConfigurationFactory.mysql(
         hostname: Environment.get("DATABASE_HOST") ?? "localhost",
-        port: Environment.get("DATABASE_PORT").flatMap(Int.init(_:)) ?? 3306,
-        username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
+        port: Environment.get("DATABASE_PORT").flatMap(Int.init(_:)) ?? 3312,
+        username: Environment.get("DATABASE_USERNAME") ?? "root",
         password: Environment.get("DATABASE_PASSWORD") ?? "root",
-        database: Environment.get("DATABASE_NAME") ?? "blackmouth"
+        database: Environment.get("DATABASE_NAME") ?? "blackmouth",
+        tlsConfiguration: .forClient(certificateVerification:.none)
     ), as: .mysql)
 
     app.migrations.add(CreateFood())
