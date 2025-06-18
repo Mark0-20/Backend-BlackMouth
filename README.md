@@ -1,6 +1,23 @@
 # BlackMouthBackend
 # 🍔 Backend BlackMouth
 
+Tema del proyecto: Menú digital de hamburguesería – BlackMouth 🍔
+
+Integrantes del equipo:
+
+Marco Antonio Hernández Magaña
+
+Sebastián Mendoza Sosa
+
+Miguel Muñoz Hernández
+
+Máximo Núñez Mireles
+
+Daniel Solís Padierna
+
+URL de la API desplegada:
+🔗 https://urchin-app-p4aaq.ondigitalocean.app/menu_items
+
 Backend para la aplicación **BlackMouth**, un sistema de menú digital para un restaurante de hamburguesas. Desarrollado con [Vapor](https://vapor.codes/), un framework backend en Swift.
 
 ## 🚀 Tecnologías utilizadas
