@@ -1,23 +1,95 @@
 # BlackMouthBackend
+# 🍔 Backend BlackMouth
 
-💧 A project built with the Vapor web framework.
+Backend para la aplicación **BlackMouth**, un sistema de menú digital para un restaurante de hamburguesas. Desarrollado con [Vapor](https://vapor.codes/), un framework backend en Swift.
 
-## Getting Started
+## 🚀 Tecnologías utilizadas
 
-To build the project using the Swift Package Manager, run the following command in the terminal from the root of the project:
-```bash
-swift build
+- [Vapor 4](https://docs.vapor.codes/)
+- Swift 5+
+- PostgreSQL
+- JWT (autenticación)
+- Docker (opcional para despliegue local)
+
+## 📁 Estructura del proyecto
+
+```
+Backend-BlackMouth/
+├── Controllers/
+│   └── MenuItemController.swift
+├── Migrations/
+│   └── CreateMenuItem.swift
+├── Models/
+│   └── MenuItem.swift
+├── Routes/
+│   └── routes.swift
+├── Configurations/
+│   └── configure.swift
+├── main.swift
+└── ...
 ```
 
-To run the project and start the server, use the following command:
-```bash
-swift run
+## 🧾 Funcionalidad actual
+
+### Endpoints disponibles
+
+#### GET `/menu_items`
+Retorna una lista de todos los elementos del menú.
+
+**Ejemplo de respuesta:**
+```json
+[
+  {
+    "id": "627FA821-4A25-11F0-A440-EAB4945E15B5",
+    "category": "Comida rápida",
+    "name": "Hamburguesa Clásica",
+    "imageURL": "https://example.com/img/hamburguesa.jpg"
+  }
+]
 ```
 
-To execute tests, use the following command:
-```bash
-swift test
-```
+
+## ⚙️ Configuración local
+
+### Requisitos
+
+- Swift 5.9+
+- PostgreSQL corriendo localmente o remotamente
+- Vapor Toolbox (opcional, recomendado):  
+  ```bash
+  brew install vapor
+  ```
+
+### Instalación
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/Mark0-20/Backend-BlackMouth.git
+   cd Backend-BlackMouth
+   ```
+
+2. Configura el archivo `.env` con tus credenciales de base de datos:
+   ```env
+   DATABASE_URL=postgres://usuario:contraseña@localhost:5432/blackmouthdb
+   ```
+
+3. Ejecuta las migraciones y corre el servidor:
+   ```bash
+   vapor run migrate
+   vapor run serve
+   ```
+
+## 🧪 Pruebas
+
+Puedes probar los endpoints con herramientas como [Postman](https://www.postman.com/) o [Insomnia](https://insomnia.rest/).
+
+---
+
+## 📦 Despliegue
+
+El backend esta desplegado en servicio :
+
+- [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform)
 
 ### See more
 
