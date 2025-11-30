@@ -1,7 +1,7 @@
 import Fluent
 import Vapor
 
-final class User: Model, Content {
+final class User: Model, Content, @unchecked Sendable {
     static let schema = "users"
 
     @ID(key: .id)
@@ -13,7 +13,7 @@ final class User: Model, Content {
     @Field(key: "email")
     var email: String
 
-    @Field(key: "passwordHash")
+    @Field(key: "password_hash")
     var passwordHash: String
 
     init() {}
