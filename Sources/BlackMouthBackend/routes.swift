@@ -3,7 +3,7 @@ import Vapor
 
 func routes(_ app: Application) throws {
     app.get { req async in
-        "It works!"
+        "It works Abiiiiiii!"
     }
 
     app.get("hello") { req async -> String in
@@ -30,7 +30,7 @@ func routes(_ app: Application) throws {
 
     app.put("menu_items", ":id"){req async throws -> MenuItems in
         guard let existingMenuItem = try await MenuItems.find(req.parameters.get("id"), on: req.db) else {
-            throw Abort(.notFound, reason: "Album not found")
+            throw Abort(.notFound, reason: "Food not found")
         }
         let updatedMenuItem = try req.content.decode(MenuItems.self)
         existingMenuItem.name = updatedMenuItem.name
@@ -44,7 +44,7 @@ func routes(_ app: Application) throws {
 
     app.delete("menu_items", ":id"){ req async throws -> HTTPStatus in
         guard let existingMenuItem = try await MenuItems.find(req.parameters.get("id"), on: req.db) else {
-            throw Abort(.notFound, reason: "Album not found")
+            throw Abort(.notFound, reason: "Food not found")
         }
         try await existingMenuItem.delete(on: req.db)
         return .noContent
