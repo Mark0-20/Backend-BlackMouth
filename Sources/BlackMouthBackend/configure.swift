@@ -20,7 +20,7 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(CreateFood())
     app.migrations.add(CreateTodo())
     app.migrations.add(CreateUser())
-    app.migrations.add(CreateOrders())
+    app.migrations.add(CreateOrder())
 
     // register routes
     try routes(app)
