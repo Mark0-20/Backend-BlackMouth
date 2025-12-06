@@ -1,7 +1,7 @@
 import Vapor
 import Fluent
 
-struct OrdersController: RouteCollection {
+struct OrderController: RouteCollection {
     func boot(routes: any RoutesBuilder) throws {
         let orders = routes.grouped("orders")
 
