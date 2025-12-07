@@ -50,6 +50,19 @@ func routes(_ app: Application) throws {
         return .noContent
     }
 
+    app.get("users") { req async throws -> [User] in
+        try await User.query(on: req.db).all()
+    }
+
+    app.get("orders") { req async throws -> [Order] in
+        try await Order.query(on: req.db).all()
+    }
+
+    app.get("todos") { req async throws -> [Todo] in
+        try await Todo.query(on: req.db).all()
+    }
+
+
     try app.register(collection: TodoController())
     try app.register(collection: UserController())
     try app.register(collection: OrderController())
